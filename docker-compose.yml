@@ -1,0 +1,10 @@
+version: '3'
+services:
+  warp-svc:
+    image: scarecrow928/warp-svc
+    container_name: warp-svc
+    restart: unless-stopped
+    network_mode: host
+    # or mapping ports
+    # ports:
+    #   - 40000:40000
