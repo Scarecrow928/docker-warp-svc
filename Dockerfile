@@ -12,8 +12,13 @@ RUN apt update && \
   apt update && \
   apt install -y cloudflare-warp && \
   apt autoclean && \
-  apt autoremove
+  apt autoremove && \
+  rm -rf /var/lib/apt/lists/*
 
 EXPOSE 40000
+
+VOLUME [ "/var/lib/cloudflare-warp/settings.json" ]
+VOLUME [ "/var/lib/cloudflare-warp/conf.json" ]
+VOLUME [ "/var/lib/cloudflare-warp/reg.json" ]
 
 CMD [ "/bin/warp-svc" ]
