@@ -17,8 +17,4 @@ RUN apt update && \
 
 EXPOSE 40000
 
-VOLUME [ "/var/lib/cloudflare-warp/settings.json" ]
-VOLUME [ "/var/lib/cloudflare-warp/conf.json" ]
-VOLUME [ "/var/lib/cloudflare-warp/reg.json" ]
-
 CMD [ "/bin/warp-svc" ]
