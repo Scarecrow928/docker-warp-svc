@@ -1,6 +1,8 @@
 FROM debian:bookworm-slim
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG WARP_DIR=/var/lib/cloudflare-warp
+ARG LOG_REDIRECTION_DEST=/dev/null
 
 RUN apt update && \
   apt upgrade -y && \
@@ -13,7 +15,13 @@ RUN apt update && \
   apt install -y cloudflare-warp && \
   apt autoclean && \
   apt autoremove && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  mkdir -p ${WARP_DIR} && \
+  ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_daemon_dns.txt && \
+  ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_dns_stats.txt && \
+  ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_stats.txt && \
+  ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_boring.txt && \
+  ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_log.txt
 
 EXPOSE 40000
 
