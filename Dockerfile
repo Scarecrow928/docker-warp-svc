@@ -22,7 +22,7 @@ COPY --from=download /etc/apt/sources.list.d/cloudflare-client.list /etc/apt/sou
 RUN cd /tmp && \
 
   # install fron a deb package
-  dpkg -i cloudflare-warp*.deb && \
+  dpkg -i cloudflare-warp*.deb || true && \
 
   # fix dependencies
   apt update && \
