@@ -34,6 +34,8 @@ RUN cd /tmp && \
 
   # useless files
   rm -f /usr/bin/warp-taskbar && \
+  rm -f /usr/bin/warp-diag && \
+  rm -f /usr/bin/warp-dex && \
 
   # redirect logs
   mkdir -p ${WARP_DIR} && \
