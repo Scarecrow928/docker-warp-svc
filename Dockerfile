@@ -44,5 +44,6 @@ RUN cd /tmp && \
   ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_stats.txt && \
   ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_boring.txt && \
   ln -s ${LOG_REDIRECTION_DEST} ${WARP_DIR}/cfwarp_service_log.txt
+
 EXPOSE 40000
 CMD [ "/bin/warp-svc" ]
