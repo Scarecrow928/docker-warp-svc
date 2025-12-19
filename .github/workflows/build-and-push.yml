@@ -1,5 +1,10 @@
 name: build-and-push
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
 
 env:
   IMAGE_NAME: scarecrow928/warp-svc
